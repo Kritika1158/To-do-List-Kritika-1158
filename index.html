@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        body{
+    margin: 0%;
+    background-color: #F7F7F7;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER SECTION */
+.Header{
+    top:10px;
+    margin-left:0px;
+    width:1500px;
+    height:70px;
+    text-align:center;
+    font:bold 40px/49px Inter;
+    letter-spacing: 0px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 20px 30px #7B7B7B29;
+}
+
+.Tasks{
+    left:50px;
+    color:#b2b2b2;
+}
+.List{
+    color:#f18973;
+}
+
+
+
+/* BODY SECTION */
+
+#mdiv{
+    margin: 0;
+    width: auto;
+    background-color: #F7F7F7;
+    display: grid;
+    height:auto
+}
+
+#box-div{
+    background-color: #F7F7F7;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 80px;
+}
+
+#b1{
+    border-radius: 50%;
+    border: 0;
+    color:#f18973;
+    color: white;
+    font-size: xx-large;
+    height: 40px;
+    width: 40px;
+}
+
+#bd1{
+    padding: 15px;
+    right: 3%;
+    display:flex;
+    justify-content: right;
+    padding-right: 65px;
+}
+
+
+#b2{
+    margin-top:0px;
+    border: none;
+    background-color: #F7F7F7;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+}
+
+.box{
+    padding: 10px 15px;
+    margin: 20px;
+    background-color: white;
+    height: auto;
+    min-height: 200px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.box h3{
+    padding-left: 13px;
+    color:#f18973;
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ededed;
+}
+
+.box h4{
+    color: #424242;
+    font-weight: none;
+    padding-left: 20px;
+}
+
+.box:hover{
+    transition-delay: 0.2s;
+    box-shadow: skyblue;
+    border: 2px solid #f18973;
+}
+
+
+@media screen and (max-width:640px) {
+    body{
+        margin: 0%;
+        background-color: #F7F7F7;
+        height: auto;
+        width: auto;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* header section*/
+    
+    #hdiv{
+        margin: 0;
+        overflow: hidden;
+        width: 100%;
+        background-color: white;
+        display:flex;
+        justify-content: center;
+    }
+
+    #h1{
+        padding-left:30px ;
+        color:#b2b2b2;
+    }
+
+    #h2{
+        padding-left: 8px;
+        color:#f18973;
+    }
+
+    /* body section*/
+    
+    #mdiv{
+        margin: 0;
+        width: 100%;
+        background-color: #F7F7F7;
+        display: grid;
+        height:auto;
+        width: auto;
+        min-height: 80px;
+        min-width: 100px;
+        justify-content: center;
+    }
+
+    #box-div{
+        background-color: #F7F7F7;
+        display: flex;
+        flex-wrap: wrap;
+        border: 2px solid rgb(229, 139, 169);
+    }
+
+    #b1{
+        margin-top: 20px;
+        border-radius: 50%;
+        border: 0;
+        background-color: #f18973;;
+        color: white;
+        font-size: xx-large;
+        height: 40px;
+        width: 40px;
+    }
+
+    #bd1{
+        display:inline-flex;
+        justify-content: center;
+        margin:auto;
+    }
+    
+    #b2{
+        /* margin-top:-100px; */
+        margin-bottom: 30%;
+        /* padding-bottom: 10px; */
+        border: none;
+        background-color: #F7F7F7;
+        font-size: larger;
+    }
+    
+    .box{
+        height: auto;
+        min-height: 100px;
+        width: 100px;
+        padding: 10px 15px;
+        margin: 20px;
+        background-color: white;
+        border-radius: 5px;
+        
+    }
+    
+    .box h3{
+        color:#f18973;
+    }
+
+    .box h4{
+        color:#b2b2b2;
+        font-weight: none;
+    }  
+    
+    .box-head{
+        color:#f18973;
+        margin: 10px;
+    }
+
+    .box:hover{
+        transition-delay: 0.2s;
+        box-shadow: 0px 0px 9px rgb(139, 138, 138);
+        border: 2px solid rgb(200, 19, 79);
+    }
+
+}
+    </style>
+</head>
+
+<body>
+    
+    <div class="Header">
+        <span class="Tasks">Tasks</span>
+        <span class="List">List</span>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section style="background-color: #F7F7F7 0% 0% no-repeat padding-box;">
+        <div id="mdiv">
+            <div id="bd1">
+
+                <img src="Image1.png" id="b1" onclick="add()">
+                <button id="b2" onclick="add()">Add New Task</button>
+            </div>
+            <div id="box-div">
+            </div>
+        </div>
+    <!-- tasks section -->
+    </section>
+    <script type="text/javascript">
+        var j = 1;
+        var boxid = 1;
+
+        function add() {
+            var head1 = String(prompt("Please Enter the Task Name"));
+            if (head1) {
+                var item1 = Number(prompt("Enter Number of Tasks "));
+                var arr1 = new Array();
+                for (var i = 0; i < item1; i++) {
+                    arr1[i] = prompt("ENTER " + (i + 1) + " ELEMENT");
+                }
+                var boxd = document.getElementById("box-div");
+                var box1 = document.createElement("div");
+                box1.className = "box";
+                box1.id = `boxy${boxid}`;
+                boxid++;
+                box1.innerHTML += `<div id="box-head"><h3 onclick="boxy(${box1.id})">${head1}</h3></div>`;
+                for (var i = 0; i < item1; i++) {
+                    if (arr1[i] != "") {
+                        box1.innerHTML += `<h4>             
+                                        <input type="checkbox" id="id${j}" onclick="checkl(id${j},label${j})">
+                                        <label for="id${j}" id="label${j}">${arr1[i]}</label>
+                                </h4>`;
+                        j++;
+                    }
+                }
+                if (head1 && item1) {
+                    boxd.appendChild(box1);
+                }
+
+
+            }
+        }
+        function boxy(bid) {
+            var box = bid
+            var ans = String(prompt("Do you want to add items in this list?(yes / no)"));
+            if (ans == "y" || ans=="yes") {
+                var item1 = Number(prompt("Enter Number of items"));
+                var arr1 = new Array();
+                for (var i = 0; i < item1; i++) {
+                    arr1[i] = prompt("ENTER " + (i + 1) + " ELEMENT");
+                }
+                for (var i = 0; i < item1; i++) {
+                    if (arr1[i] != "") {
+                        box.innerHTML += `<h4>             
+                                        <input type="checkbox" id="id${j}" onclick="checkl(id${j},label${j})">
+                                        <label for="id${j}" id="label${j}">${arr1[i]}</label>
+                                </h4>`;
+                        j++;
+                    }
+                }
+            }
+            else {
+                alert("No Elements were added!!");
+            }
+        }
+        function checkl(idd, labell) {
+            var checkb = idd;
+            var lebel = labell;
+            if (checkb.checked == true) {
+                labell.style.textDecorationLine = "line-through";
+                labell.style.color = "#C2C2C2";
+            } else {
+                labell.style.textDecorationLine = "none";
+                labell.style.color = "#424242";
+            }
+        }
+    </script>
+</body>
+
+</html>
